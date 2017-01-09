@@ -1,0 +1,365 @@
+﻿title: Relational Reponding Task 
+authors: Yang Ye (yang.ye@ugent.be), Ian Hussey (ian.hussey@ugent.be)
+license: GPLv3+
+reference: De Houwer, J., Heider, N., Spruyt, A., Roets, A., & Hughes, S. (2015). The relational responding task: Toward a new implicit measure of beliefs. Frontiers in Psychology, 6.
+
+*****************************************************************
+synonyms
+*****************************************************************
+
+<item word.true.item>
+/ 1 = "correct"
+/ 2 = "confirm"
+/ 3 = "right"
+/ 4 = "accurate"
+/ 5 = "yes"
+/ 6 = "valid"
+/ 7 = "definite"
+/ 8 = "sure"
+</item>
+
+<item word.false.item>
+/ 1 = "incorrect"
+/ 2 = "deny"
+/ 3 = "wrong"
+/ 4 = "inaccurate"
+/ 5 = "no"
+/ 6 = "invalid"
+/ 7 = "inexact"
+/ 8 = "untrue"
+</item>
+
+*****************************************************************
+statements
+*****************************************************************
+
+<item propositionA.item>
+/ 1 = "cigarettes cause cancer"
+/ 2 = "cars cause pollution"
+/ 3 = "death causes grief"
+/ 4 = "exams cause stress"
+/ 5 = "vaccines prevent disease"
+/ 6 = "cholesterol causes heart−disease"
+/ 7 = "coffee prevents sleep"
+/ 8 = "deodorant prevents smell"
+/ 9 = "exercise prevents heart−disease"
+/ 10 = "safety prevents injury"
+</item>
+
+<item propositionB.item>
+/ 1 = "cigarettes prevent cancer"
+/ 2 = "cars prevent pollution"
+/ 3 = "death prevents grief"
+/ 4 = "exams prevent stress"
+/ 5 = "cholesterol prevents heart−disease"
+/ 6 = "vaccines cause disease"
+/ 7 = "coffee causes sleep"
+/ 8 = "deodorant causes smell"
+/ 9 = "exercise causes heart−disease"
+/ 10 = "safety causes injury"
+</item>
+
+*****************************************************************
+labels
+*****************************************************************
+
+<item label.true.item>
+/ 1 = "TRUE"
+</item>
+
+<item label.false.item>
+/ 1 = "FALSE"
+</item>
+
+*****************************************************************
+instructions
+*****************************************************************
+
+<item instructions.RRT.item>
+
+/ 1 = 
+"In this task you will have to react to the words and statments presented on screen. 
+
+In the first phase words will be presented in orange.
+
+Categorize them as meaning FALSE or TRUE using the E and I keys.
+
+	Press E if the word means FALSE.
+	Press I if the word means TRUE."
+
+/ 2 = 
+"Please respond as quickly as possible without making too many mistakes. 
+
+If you make a mistake, press the correct key as soon as possible to continue."
+ 
+/ 3 = 
+"In the next phase statements will be presented in white.
+
+Respond to the statements as being generally considered to be FALSE or TRUE using the E and I keys. 
+If you're unsure, use the feedback to learn the required response.
+	
+	Press I when the statement is FALSE.
+	Press E when the statement is TRUE."
+
+/ 4 = 
+"For example:
+
+	If presented with 'cigarettes cause cancer' press 'TRUE' (I).
+
+	If presented with 'vaccines prevent disease ' press 'FALSE' (E)."
+/ 5 = 
+"The next phase will present both the orange words and the white statements together. Please continue to respond as you have before."
+/ 6  = 
+"The next phase will present the statements in white only.
+
+IMPORTANT: This time, you must respond to true statements AS IF they are false, and false statements AS IF they are true.
+
+	When the statement is true, respond with E for FALSE.
+	When the statement is false, respond with I for TRUE."
+/ 7 = 
+"For example:
+
+	If presented with 'cigarettes cause cancer' press 'FALSE' (E).
+
+	If presented with 'vaccines prevent disease ' press 'TRUE' (I)."
+/ 8 = 
+"The next phase will present both the orange words and the white statements together.
+
+Again, you must respond to true statements AS IF they are false, and false statements AS IF they are true.
+
+You must also categorize the words in ORANGE as meaning TRUE or FALSE, as you have before."
+</item>
+
+*****************************************************************
+stimuli
+*****************************************************************
+
+<text word.true.text>
+/ items = word.true.item
+/ fontstyle = ("Arial", 4%)
+/ txcolor = (255, 128, 0)
+/ select = noreplacenorepeat
+</text>
+
+<text word.false.text>
+/ items = word.false.item
+/ fontstyle = ("Arial", 4%)
+/ txcolor = (255, 128, 0)
+/ select = noreplacenorepeat
+</text>
+
+<text label.true.text>
+/ items = label.true.item
+/ halign = right
+/ position = (95%, 5%)
+/ fontstyle = ("Arial", 5%, true)
+</text>
+
+<text label.false.text>
+/ items = label.false.item
+/ halign = left
+/ position = (5%, 5%)
+/ fontstyle = ("Arial", 5%, true)
+</text>
+
+<text propositionA.text>
+/ items = propositionA.item
+/ fontstyle = ("Arial", 4%)
+/ select = noreplacenorepeat
+</text>
+
+<text propositionB.text>
+/ items = propositionB.item
+/ fontstyle = ("Arial", 4%)
+/ select = noreplacenorepeat
+</text>
+
+<text error>
+/ position = (50%, 75%)
+/ items = ("X")
+/ color = (255, 0, 0)
+/ fontstyle = ("Arial", 12%)
+</text>
+
+<counter instructions.RRT.counter>
+/ resetinterval = 45
+/ select = sequence(1, 2, 3, 4, 5, 6, 7, 8)
+</counter>
+
+<text instructions.RRT.text >
+/ items = instructions.RRT.item
+/ hjustify = left
+/ size = (90%, 70%)
+/ select = instructions.RRT.counter
+</text>
+
+<text forward.RRT>
+/ items = ("Press spacebar to continue.")
+/ size = (50%, 8%)
+/ position = (50%, 80%)
+</text>
+
+<text ready.txt>
+/ items = ("Place your index fingers on E and I. Press one of them to begin.")
+</text>
+
+*****************************************************************
+trials
+*****************************************************************
+
+<trial word.true.trial>
+/ validresponse = ("e", "i")
+/ correctresponse = ("i")
+/ stimulusframes = [1 = word.true.text]
+/ posttrialpause = 300
+</trial>
+
+<trial word.false.trial>
+/ validresponse = ("e", "i")
+/ correctresponse = ("e")
+/ stimulusframes = [1 = word.false.text]
+/ posttrialpause = 300
+</trial>
+
+<trial PropositionA.true.trial>
+/ validresponse = ("e", "i")
+/ correctresponse = ("i")
+/ stimulusframes = [1 = PropositionA.text]
+/ posttrialpause = 300
+</trial>
+
+<trial PropositionA.false.trial>
+/ validresponse = ("e", "i")
+/ correctresponse = ("e")
+/ stimulusframes = [1 = PropositionA.text]
+/ posttrialpause = 300
+</trial>
+
+<trial PropositionB.true.trial>
+/ validresponse = ("e", "i")
+/ correctresponse = ("i")
+/ stimulusframes = [1 = PropositionB.text]
+/ posttrialpause = 300
+</trial>
+
+<trial PropositionB.false.trial>
+/ validresponse = ("e", "i")
+/ correctresponse = ("e")
+/ stimulusframes = [1  = PropositionB.text]
+/ posttrialpause = 300
+</trial>
+
+<trial instructions.RRT.trial>
+/ stimulustimes = [1 = instructions.RRT.text, forward.RRT]
+/ correctresponse = (57)
+/ errormessage = false
+/ recorddata = false
+</trial>
+
+<trial ready.trial>
+/ stimulustimes = [1 = ready.txt]
+/ correctresponse = ("e", "i")
+/ posttrialpause = 1000
+/ errormessage = false
+/ recorddata = false
+</trial>
+
+*****************************************************************
+blocks
+*****************************************************************
+
+<block inducer.block>
+/ bgstim = (label.false.text, label.true.text)
+/ trials = [1-2 = instructions.RRT.trial; 3 = ready.trial; 4-43 = random(word.true.trial, word.false.trial)]
+/ errormessage = true(error, 0)
+/ responsemode = correct
+</block>
+
+<block PropositionA.true.block>
+/ bgstim = (label.false.text, label.true.text)
+/ trials = [1-2 = instructions.RRT.trial; 3 = ready.trial; 4-43 = random(PropositionA.true.trial, PropositionB.false.trial)]
+/ errormessage = true(error, 0)
+/ responsemode = correct
+</block>
+
+<block PropositionA.true.intermixed.block.1>
+/ bgstim = (label.false.text, label.true.text)
+/ trials = [1 = instructions.RRT.trial; 2 = ready.trial; 3-42 =  random(word.true.trial, word.false.trial, PropositionA.true.trial, PropositionB.false.trial)]
+/ errormessage = true(error, 0)
+/ responsemode = correct
+</block>
+
+<block PropositionA.true.intermixed.block.2>
+/ bgstim = (label.false.text, label.true.text)
+/ trials = [1-40 =  random(word.true.trial, word.false.trial, PropositionA.true.trial, PropositionB.false.trial)]
+/ errormessage = true(error, 0)
+/ responsemode = correct
+</block>
+
+<block PropositionB.true.block>
+/ bgstim = (label.false.text, label.true.text)
+/ trials = [1-2 = instructions.RRT.trial; 3 = ready.trial; 4-43 = random(PropositionB.true.trial, PropositionA.false.trial)]
+/ errormessage = true(error, 0)
+/ responsemode = correct
+</block>
+
+<block PropositionB.true.intermixed.block.1>
+/ bgstim = (label.false.text, label.true.text)
+/ trials = [1 = instructions.RRT.trial; 2 = ready.trial; 3-42 = random(word.true.trial, word.false.trial, PropositionB.true.trial, PropositionA.false.trial)]
+/ errormessage = true(error, 0)
+/ responsemode = correct
+</block>
+
+<block PropositionB.true.intermixed.block.2>
+/ bgstim = (label.false.text, label.true.text)
+/ trials = [1-40 =  random(word.true.trial, word.false.trial, PropositionB.true.trial, PropositionA.false.trial)]
+/ errormessage = true(error, 0)
+/ responsemode = correct
+</block>
+
+<block ending>
+/ trials = [1 = instructions.RRT.trial]
+/ recorddata = false
+</block>
+
+*****************************************************************
+experiment
+*****************************************************************
+
+<defaults>
+/ screencolor = (0, 0, 0)
+/ txbgcolor = (0, 0, 0)
+/ txcolor = (255, 255, 255)
+/ fontstyle = ("Arial", 3%) 
+</defaults>
+
+<expt>
+/ blocks = [1 = block1; 2 = block2; 3 = block3; 4 = block4; 5 = block5; 6 = block6; 7 = block7]
+</expt>
+
+<variables>
+/ group = (1 of 2)(block1 = inducer.block, 
+					block2 = PropositionA.true.block, 
+					block3 = PropositionA.true.intermixed.block.1, 
+					block4 = PropositionA.true.intermixed.block.2, 
+					block5 = PropositionB.true.block, 
+					block6 = PropositionB.true.intermixed.block.1, 
+					block7 = PropositionB.true.intermixed.block.2) 
+/ group = (2 of 2)(block1 = inducer.block, 
+					block2 = PropositionA.true.block, 
+					block3 = PropositionA.true.intermixed.block.1, 
+					block4 = PropositionA.true.intermixed.block.2, 
+					block5 = PropositionB.true.block, 
+					block6 = PropositionB.true.intermixed.block.1, 
+					block7 = PropositionB.true.intermixed.block.2) 
+/ groupassignment = subjectnumber
+</variables>
+
+*****************************************************************
+data
+*****************************************************************
+
+<data>
+/ columns = [date, time, subject, blockcode, blocknum, trialcode, trialnum, response, correct, latency, stimulusnumber, stimulusitem]
+</data>
+
