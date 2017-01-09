@@ -15,6 +15,8 @@ No block order counterbalancing.
 
 1:1 inducer to proposition ratio.
 
+80 trials per critical block (80 pairs)
+
 ## Requirements
 - Inquisit 4.0+
 
