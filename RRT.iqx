@@ -275,7 +275,7 @@ blocks
 / bgstim = (relation_2_label, relation_1_label)
 / trials = [1-2 = instructions_trial; 
 			3 = ready_trial; 
-			4-43 = random(relation_1_trial, relation_2_trial)]
+			4-23 = random(relation_1_trial, relation_2_trial)]
 / errormessage = true(error, 0)
 / responsemode = correct
 </block>
@@ -284,7 +284,7 @@ blocks
 / bgstim = (relation_2_label, relation_1_label)
 / trials = [1-2 = instructions_trial; 
 			3 = ready_trial; 
-			4-43 = random(proposition_A_relation_1_trial, proposition_B_relation_2_trial)]
+			4-23 = random(proposition_A_relation_1_trial, proposition_B_relation_2_trial)]
 / errormessage = true(error, 0)
 / responsemode = correct
 </block>
@@ -302,7 +302,7 @@ blocks
 / bgstim = (relation_2_label, relation_1_label)
 / trials = [1-2 = instructions_trial; 
 			3 = ready_trial; 
-			4-43 = random(proposition_B_relation_1_trial, proposition_A_relation_2_trial)]
+			4-23 = random(proposition_B_relation_1_trial, proposition_A_relation_2_trial)]
 / errormessage = true(error, 0)
 / responsemode = correct
 </block>
