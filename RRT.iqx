@@ -51,8 +51,8 @@ statements
 / 2 = "cars cause pollution"
 / 3 = "death causes grief"
 / 4 = "exams cause stress"
-/ 5 = "vaccines prevent disease"
-/ 6 = "cholesterol causes heart−disease"
+/ 5 = "cholesterol causes heart−disease"
+/ 6 = "vaccines prevent disease"
 / 7 = "coffee prevents sleep"
 / 8 = "deodorant prevents smell"
 / 9 = "exercise prevents heart−disease"
@@ -120,9 +120,11 @@ IMPORTANT: This time, you must respond to true statements AS IF they are false, 
 / 7 = 
 "For example:
 
-	If presented with 'cigarettes cause cancer' respond with I for TRUE.
+	If presented with 'cigarettes cause cancer' respond with I for FALSE.
 
-	If presented with 'vaccines prevent disease' respond with E for FALSE."
+	If presented with 'vaccines prevent disease' respond with E for TRUE.
+
+This is counterintuitive, but it is on purpose."
 / 8 = 
 "The next phase will present both the orange words and the white statements together.
 
@@ -184,7 +186,7 @@ stimuli
 
 <counter instructions_counter>
 / resetinterval = 45
-/ select = sequence(1, 2, 3, 4, 5, 6, 7)
+/ select = sequence(1, 2, 3, 4, 5, 6, 7, 8)
 </counter>
 
 <text instructions_text>
@@ -287,18 +289,11 @@ blocks
 / responsemode = correct
 </block>
 
-<block proposition_A_relation_1_and_inducers_block_1>
+<block proposition_A_relation_1_and_inducers_block>
 / bgstim = (relation_2_label, relation_1_label)
 / trials = [1 = instructions_trial; 
 			2 = ready_trial; 
-			3-42 = random(relation_1_trial, relation_2_trial, proposition_A_relation_1_trial, proposition_B_relation_2_trial)]
-/ errormessage = true(error, 0)
-/ responsemode = correct
-</block>
-
-<block proposition_A_relation_1_and_inducers_block_2>
-/ bgstim = (relation_2_label, relation_1_label)
-/ trials = [1-40 = random(relation_1_trial, relation_2_trial, proposition_A_relation_1_trial, proposition_B_relation_2_trial)]
+			3-82 = random(relation_1_trial, relation_2_trial, proposition_A_relation_1_trial, proposition_B_relation_2_trial)]
 / errormessage = true(error, 0)
 / responsemode = correct
 </block>
@@ -306,23 +301,17 @@ blocks
 <block proposition_B_relation_1_block>
 / bgstim = (relation_2_label, relation_1_label)
 / trials = [1-2 = instructions_trial; 
-			3 = ready_trial; 4-43 = random(proposition_B_relation_1_trial, proposition_A_relation_2_trial)]
+			3 = ready_trial; 
+			4-43 = random(proposition_B_relation_1_trial, proposition_A_relation_2_trial)]
 / errormessage = true(error, 0)
 / responsemode = correct
 </block>
 
-<block proposition_B_relation_1_and_inducers_block_1>
+<block proposition_B_relation_1_and_inducers_block>
 / bgstim = (relation_2_label, relation_1_label)
 / trials = [1 = instructions_trial; 
 			2 = ready_trial; 
-			3-42 = random(relation_1_trial, relation_2_trial, proposition_B_relation_1_trial, proposition_A_relation_2_trial)]
-/ errormessage = true(error, 0)
-/ responsemode = correct
-</block>
-
-<block proposition_B_relation_1_and_inducers_block_2>
-/ bgstim = (relation_2_label, relation_1_label)
-/ trials = [1-40 = random(relation_1_trial, relation_2_trial, proposition_B_relation_1_trial, proposition_A_relation_2_trial)]
+			3-82 = random(relation_1_trial, relation_2_trial, proposition_B_relation_1_trial, proposition_A_relation_2_trial)]
 / errormessage = true(error, 0)
 / responsemode = correct
 </block>
@@ -339,17 +328,15 @@ experiment
 </defaults>
 
 <expt>
-/ blocks = [1 = block1; 2 = block2; 3 = block3; 4 = block4; 5 = block5; 6 = block6; 7 = block7]
+/ blocks = [1 = block1; 2 = block2; 3 = block3; 4 = block4; 5 = block5]
 </expt>
 
 <variables>
 / group = (1 of 1)(block1 = inducer_block, 
 					block2 = proposition_A_relation_1_block, 
-					block3 = proposition_A_relation_1_and_inducers_block_1, 
-					block4 = proposition_A_relation_1_and_inducers_block_2, 
-					block5 = proposition_B_relation_1_block, 
-					block6 = proposition_B_relation_1_and_inducers_block_1, 
-					block7 = proposition_B_relation_1_and_inducers_block_2) 
+					block3 = proposition_A_relation_1_and_inducers_block, 
+					block4 = proposition_B_relation_1_block, 
+					block5 = proposition_B_relation_1_and_inducers_block) 
 / groupassignment = subjectnumber
 </variables>
 
